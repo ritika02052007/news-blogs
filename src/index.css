@@ -1,0 +1,101 @@
+/* Global styles: monochromatic design system. Spacing uses 16px / 32px steps. */
+:root {
+  --white: #ffffff;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  --error: #b91c1c;
+  --space-1: 16px;
+  --space-2: 32px;
+  --radius: 8px;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--gray-100);
+  color: var(--gray-900);
+  line-height: 1.5;
+}
+
+.container { max-width: 1040px; margin: 0 auto; padding: var(--space-2) var(--space-1); }
+
+.app-header { margin-bottom: var(--space-2); padding-bottom: var(--space-1); border-bottom: 2px solid var(--gray-900); }
+.app-header h1 { margin: 0; font-size: 1.75rem; letter-spacing: -0.02em; }
+.app-header p { margin: 0; color: var(--gray-600); }
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--space-1);
+  margin-bottom: var(--space-2);
+}
+.card h2 { margin: 0 0 var(--space-1); font-size: 1.125rem; }
+
+/* Stats */
+.stats-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-1); margin-bottom: var(--space-2); }
+.stat-card { background: var(--gray-900); color: var(--white); border-radius: var(--radius); padding: var(--space-1); box-shadow: var(--shadow); }
+.stat-card .stat-value { display: block; font-size: 1.5rem; font-weight: 700; overflow-wrap: anywhere; }
+.stat-card .stat-label { color: var(--gray-300); font-size: 0.875rem; }
+
+/* Toolbar */
+.toolbar { display: flex; flex-wrap: wrap; gap: var(--space-1); }
+.toolbar .field { flex: 1 1 240px; }
+
+/* Form controls */
+label { display: block; margin-bottom: 4px; font-weight: 600; font-size: 0.875rem; color: var(--gray-800); }
+input, select {
+  width: 100%;
+  padding: 10px 16px;
+  font: inherit;
+  color: var(--gray-900);
+  background: var(--white);
+  border: 1px solid var(--gray-400);
+  border-radius: var(--radius);
+}
+input:disabled, select:disabled { background: var(--gray-100); }
+input[aria-invalid="true"] { border: 2px solid var(--error); }
+.error-text { margin: 4px 0 0; color: var(--error); font-size: 0.875rem; }
+.form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-1); margin-bottom: var(--space-1); }
+
+button {
+  font: inherit; font-weight: 600; cursor: pointer;
+  padding: 10px 16px; border-radius: var(--radius);
+  color: var(--white); background: var(--gray-900); border: 1px solid var(--gray-900);
+}
+button:hover:not(:disabled) { background: var(--gray-700); }
+button.secondary { color: var(--gray-900); background: var(--white); border-color: var(--gray-400); }
+button.secondary:hover:not(:disabled) { background: var(--gray-100); }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+:focus-visible { outline: 3px solid var(--gray-600); outline-offset: 2px; }
+
+/* Table */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+caption { text-align: left; font-weight: 700; padding-bottom: var(--space-1); }
+th, td { padding: var(--space-1); text-align: left; border-bottom: 1px solid var(--gray-200); }
+thead th { background: var(--gray-100); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--gray-700); }
+tbody tr:hover { background: var(--gray-50); }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.badge { display: inline-block; padding: 2px 16px; border-radius: 999px; background: var(--gray-200); color: var(--gray-800); font-size: 0.875rem; }
+
+/* States */
+.state { text-align: center; padding: var(--space-2) var(--space-1); }
+.state p { margin: 0; color: var(--gray-600); }
+.state h2 { margin: 0 0 4px; }
+.state.error h2, .state.error p { color: var(--error); }
+.state button { margin-top: var(--space-1); }
+.spinner { width: 40px; height: 40px; margin: 0 auto var(--space-1); border: 4px solid var(--gray-200); border-top-color: var(--gray-800); border-radius: 50%; animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spinner { animation-duration: 3s; } }
