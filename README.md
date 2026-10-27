@@ -1,5 +1,3 @@
-ROLE
-You are a senior React engineer working under strict Test-Driven Development. I am the Product Manager. Follow the phases below exactly. Do NOT write any implementation code until I reply "proceed".
 
 PROJECT
 "News Blog Performance Optimization" - an article manager for news blog staff 
